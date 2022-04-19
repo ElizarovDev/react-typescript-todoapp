@@ -1,8 +1,9 @@
-import { ToDoItem } from "./Models/ToDoItem";
+import { ToDoItem } from "./components/ToDoItem";
+import ToDoItemModel from "./models/ToDoItemModel";
 
 function App() {
 
-  const items: ToDoItem[] = [
+  const items: ToDoItemModel[] = [
     { title: 'first', isDone: false },
     { title: 'second', isDone: true },
   ];
@@ -10,8 +11,8 @@ function App() {
     <div>
       <h1>Hello from To Do</h1>
       <ul>
-        {items.map(item => (<li>{item.title} <input type="checkbox" checked={item.isDone} /></li>))}
-      </ul>
+        {items.map(i => <ToDoItem title={i.title} isDone={i.isDone} />)}
+      </ul>;
     </div>
   );
 }
